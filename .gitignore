@@ -1,0 +1,14 @@
+# OpenTofu runtime files and local state
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# Ansible secrets and retry tokens
+*.retry
+ansible/secret_vault.yml
+
+# System leftovers
+.DS_Store
+Thumbs.db
