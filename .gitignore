@@ -1,13 +1,24 @@
 # OpenTofu runtime files and local state
 .terraform/
+.tofu/
 *.tfstate
+*.tfstate.*
 *.tfstate.backup
-*.tfvars
 .terraform.lock.hcl
+*.log
 
-# Ansible secrets and retry tokens
-*.retry
+# Explicit Secret Files (Paranoia Layer)
+*.tfvars
+secret.tfvars
 ansible/secret_vault.yml
+
+# Ansible runtime files
+*.retry
+.ansible/
+
+# Local workspace files
+.history/
+.pve-pass*
 
 # System leftovers
 .DS_Store
