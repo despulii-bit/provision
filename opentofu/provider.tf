@@ -2,17 +2,20 @@ terraform {
   required_providers {
     proxmox = {
       source  = "bpg/proxmox"
-      version = ">= 0.60.0"
+      version = "0.108.0"
     }
   }
 }
 
 provider "proxmox" {
-   endpoint = "https://192.168.1.110:8006/"
+  endpoint = var.virtual_environment_endpoint
+  insecure = true
 
-  # This points to a secure variable we will define next
-  api_token = var.proxmox_api_token
+  username = "root@pam"
+  password = var.virtual_environment_password
 
-  # Set to true if your Proxmox SSL certificate is self-signed
-  insecure  = true
+  ssh {
+    agent    = true
+    username = "root"
+  }
 }
